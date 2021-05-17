@@ -1,0 +1,15 @@
+# Docker compose contains the configuration of all the serveses
+# Example one server might be Db and another one python
+
+version: "3"
+
+services: 
+  app:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+    command: >
+     sh -c "python manage.py runserver 0.0.0.0:8000"
